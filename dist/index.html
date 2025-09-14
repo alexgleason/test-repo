@@ -156,7 +156,7 @@
     <div class="container">
         <h1 class="title">❄️ Winter Wonderland ❄️</h1>
         <p class="subtitle">May your days be merry and bright!</p>
-        
+
         <div class="festive-elements">
             <div class="element">
                 <h3>🎄 Holiday Cheer</h3>
@@ -183,23 +183,23 @@
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
             snowflake.innerHTML = Math.random() > 0.5 ? '❄' : '❅';
-            
+
             // Random horizontal position
             snowflake.style.left = Math.random() * 100 + 'vw';
-            
+
             // Random size
             const size = Math.random() * 1.5 + 0.5;
             snowflake.style.fontSize = size + 'em';
-            
+
             // Random animation duration
             const duration = Math.random() * 3 + 2;
             snowflake.style.animationDuration = duration + 's';
-            
+
             // Random animation delay
             snowflake.style.animationDelay = Math.random() * 2 + 's';
-            
+
             document.body.appendChild(snowflake);
-            
+
             // Remove snowflake after animation completes
             setTimeout(() => {
                 if (snowflake.parentNode) {
@@ -227,9 +227,9 @@
             sparkle.style.pointerEvents = 'none';
             sparkle.style.zIndex = '100';
             sparkle.style.animation = 'glow 1s ease-out forwards';
-            
+
             document.body.appendChild(sparkle);
-            
+
             setTimeout(() => {
                 if (sparkle.parentNode) {
                     sparkle.parentNode.removeChild(sparkle);
