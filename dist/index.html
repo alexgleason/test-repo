@@ -138,6 +138,161 @@
         .tree2 { left: 80%; }
         .tree3 { left: 50%; transform: scale(0.8); }
 
+        .snowman {
+            position: absolute;
+            bottom: 100px;
+            z-index: 7;
+        }
+
+        .snowman-body {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .snowman-middle {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .snowman-head {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .snowman-eyes {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .snowman-eye {
+            width: 3px;
+            height: 3px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+        }
+
+        .snowman-eye.left { left: -6px; }
+        .snowman-eye.right { right: -6px; }
+
+        .snowman-carrot {
+            width: 0;
+            height: 0;
+            border-left: 8px solid #ff6b35;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .snowman-buttons {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .snowman-button {
+            width: 4px;
+            height: 4px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+        }
+
+        .snowman-button:nth-child(1) { top: 0; }
+        .snowman-button:nth-child(2) { top: 8px; }
+        .snowman-button:nth-child(3) { top: 16px; }
+
+        .snowman-hat {
+            width: 35px;
+            height: 25px;
+            background: black;
+            position: absolute;
+            top: -85px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .snowman-hat::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: -5px;
+            right: -5px;
+            height: 5px;
+            background: black;
+            border-radius: 2px;
+        }
+
+        .snowman-arms {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .snowman-arm {
+            width: 20px;
+            height: 2px;
+            background: #8b4513;
+            position: absolute;
+            top: 0;
+        }
+
+        .snowman-arm.left {
+            right: 15px;
+            transform: rotate(-30deg);
+        }
+
+        .snowman-arm.right {
+            left: 15px;
+            transform: rotate(30deg);
+        }
+
+        .snowman1 { left: 20%; transform: scale(0.8); }
+        .snowman2 { left: 70%; transform: scale(1.1); }
+        .snowman3 { left: 45%; transform: scale(0.9); }
+
+        .snowman:hover {
+            animation: snowman-wiggle 0.5s ease-in-out;
+        }
+
+        @keyframes snowman-wiggle {
+            0%, 100% { transform: scale(var(--scale, 1)) rotate(0deg); }
+            25% { transform: scale(var(--scale, 1)) rotate(-2deg); }
+            75% { transform: scale(var(--scale, 1)) rotate(2deg); }
+        }
+
+        .snowman1 { --scale: 0.8; }
+        .snowman2 { --scale: 1.1; }
+        .snowman3 { --scale: 0.9; }
+
         @media (max-width: 768px) {
             .title {
                 font-size: 2.5rem;
@@ -177,6 +332,78 @@
     <div class="tree tree1"></div>
     <div class="tree tree2"></div>
     <div class="tree tree3"></div>
+
+    <!-- Snowmen -->
+    <div class="snowman snowman1">
+        <div class="snowman-body">
+            <div class="snowman-middle">
+                <div class="snowman-head">
+                    <div class="snowman-eyes">
+                        <div class="snowman-eye left"></div>
+                        <div class="snowman-eye right"></div>
+                    </div>
+                    <div class="snowman-carrot"></div>
+                    <div class="snowman-hat"></div>
+                </div>
+                <div class="snowman-buttons">
+                    <div class="snowman-button"></div>
+                    <div class="snowman-button"></div>
+                    <div class="snowman-button"></div>
+                </div>
+            </div>
+            <div class="snowman-arms">
+                <div class="snowman-arm left"></div>
+                <div class="snowman-arm right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="snowman snowman2">
+        <div class="snowman-body">
+            <div class="snowman-middle">
+                <div class="snowman-head">
+                    <div class="snowman-eyes">
+                        <div class="snowman-eye left"></div>
+                        <div class="snowman-eye right"></div>
+                    </div>
+                    <div class="snowman-carrot"></div>
+                </div>
+                <div class="snowman-buttons">
+                    <div class="snowman-button"></div>
+                    <div class="snowman-button"></div>
+                    <div class="snowman-button"></div>
+                </div>
+            </div>
+            <div class="snowman-arms">
+                <div class="snowman-arm left"></div>
+                <div class="snowman-arm right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="snowman snowman3">
+        <div class="snowman-body">
+            <div class="snowman-middle">
+                <div class="snowman-head">
+                    <div class="snowman-eyes">
+                        <div class="snowman-eye left"></div>
+                        <div class="snowman-eye right"></div>
+                    </div>
+                    <div class="snowman-carrot"></div>
+                    <div class="snowman-hat"></div>
+                </div>
+                <div class="snowman-buttons">
+                    <div class="snowman-button"></div>
+                    <div class="snowman-button"></div>
+                    <div class="snowman-button"></div>
+                </div>
+            </div>
+            <div class="snowman-arms">
+                <div class="snowman-arm left"></div>
+                <div class="snowman-arm right"></div>
+            </div>
+        </div>
+    </div>
 
     <script>
         function createSnowflake() {
