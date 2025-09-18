@@ -293,6 +293,147 @@
         .snowman2 { --scale: 1.1; }
         .snowman3 { --scale: 0.9; }
 
+        /* Santa's Sleigh Animation */
+        .santa-sleigh {
+            position: absolute;
+            top: 15%;
+            left: -150px;
+            z-index: 8;
+            animation: fly-across 15s linear infinite;
+        }
+
+        .sleigh {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .reindeer {
+            font-size: 2rem;
+            animation: bounce 0.5s ease-in-out infinite alternate;
+        }
+
+        .reindeer:nth-child(1) { animation-delay: 0s; }
+        .reindeer:nth-child(2) { animation-delay: 0.1s; }
+        .reindeer:nth-child(3) { animation-delay: 0.2s; }
+        .reindeer:nth-child(4) { animation-delay: 0.3s; }
+
+        .santa-and-sleigh {
+            font-size: 2.5rem;
+            margin-left: 20px;
+        }
+
+        @keyframes fly-across {
+            0% { left: -150px; }
+            100% { left: 100vw; }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* Santa's Workshop */
+        .workshop {
+            position: absolute;
+            bottom: 100px;
+            right: 10%;
+            z-index: 6;
+            background: #8B4513;
+            width: 80px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .workshop::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 30px solid #FF0000;
+        }
+
+        .workshop::after {
+            content: '🎅';
+            position: absolute;
+            top: -45px;
+            left: 20px;
+            font-size: 1.5rem;
+            animation: santa-wave 2s ease-in-out infinite;
+        }
+
+        .chimney {
+            position: absolute;
+            top: -45px;
+            right: 10px;
+            width: 15px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 2px;
+        }
+
+        .chimney::after {
+            content: '💨';
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            font-size: 0.8rem;
+            animation: smoke 3s ease-in-out infinite;
+        }
+
+        @keyframes santa-wave {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
+
+        @keyframes smoke {
+            0% { opacity: 1; transform: translateY(0px); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
+        /* Santa Hat for Title */
+        .santa-hat {
+            position: relative;
+            display: inline-block;
+        }
+
+        .santa-hat::after {
+            content: '🎅';
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            font-size: 1.5rem;
+            animation: hat-wiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes hat-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* Ho Ho Ho text */
+        .ho-ho-ho {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            font-size: 1.2rem;
+            color: #FF6B6B;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: ho-ho-fade 4s ease-in-out infinite;
+            z-index: 9;
+        }
+
+        @keyframes ho-ho-fade {
+            0%, 80%, 100% { opacity: 0; }
+            10%, 70% { opacity: 1; }
+        }
+
         @media (max-width: 768px) {
             .title {
                 font-size: 2.5rem;
@@ -309,13 +450,17 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">❄️ Winter Wonderland ❄️</h1>
-        <p class="subtitle">May your days be merry and bright!</p>
+        <h1 class="title santa-hat">🎄 Santa's Winter Wonderland ❄️</h1>
+        <p class="subtitle">Ho Ho Ho! May your days be merry and bright!</p>
 
         <div class="festive-elements">
             <div class="element">
                 <h3>🎄 Holiday Cheer</h3>
                 <p>Spread joy and warmth this festive season</p>
+            </div>
+            <div class="element">
+                <h3>🎅 Santa's Magic</h3>
+                <p>Believe in the magic of Christmas spirit</p>
             </div>
             <div class="element">
                 <h3>⛄ Snow Fun</h3>
@@ -328,10 +473,29 @@
         </div>
     </div>
 
+    <!-- Santa's Flying Sleigh -->
+    <div class="santa-sleigh">
+        <div class="sleigh">
+            <div class="reindeer">🦌</div>
+            <div class="reindeer">🦌</div>
+            <div class="reindeer">🦌</div>
+            <div class="reindeer">🦌</div>
+            <div class="santa-and-sleigh">🎅🛷</div>
+        </div>
+    </div>
+
+    <!-- Ho Ho Ho Text -->
+    <div class="ho-ho-ho">Ho Ho Ho! 🎅</div>
+
     <div class="ground"></div>
     <div class="tree tree1"></div>
     <div class="tree tree2"></div>
     <div class="tree tree3"></div>
+
+    <!-- Santa's Workshop -->
+    <div class="workshop">
+        <div class="chimney"></div>
+    </div>
 
     <!-- Snowmen -->
     <div class="snowman snowman1">
@@ -445,8 +609,9 @@
 
         // Add some interactive sparkle effect on click
         document.addEventListener('click', function(e) {
+            const effects = ['✨', '🎁', '🎅', '⭐', '❄️'];
             const sparkle = document.createElement('div');
-            sparkle.innerHTML = '✨';
+            sparkle.innerHTML = effects[Math.floor(Math.random() * effects.length)];
             sparkle.style.position = 'absolute';
             sparkle.style.left = e.clientX + 'px';
             sparkle.style.top = e.clientY + 'px';
@@ -462,6 +627,41 @@
                     sparkle.parentNode.removeChild(sparkle);
                 }
             }, 1000);
+        });
+
+        // Santa's special message when clicking on workshop
+        document.querySelector('.workshop').addEventListener('click', function() {
+            const messages = [
+                "Ho Ho Ho! 🎅",
+                "Merry Christmas! 🎄",
+                "Have you been good this year? 🎁",
+                "Santa's watching! 👀",
+                "Making toys for good children! 🧸"
+            ];
+
+            const message = document.createElement('div');
+            message.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+            message.style.position = 'absolute';
+            message.style.bottom = '200px';
+            message.style.right = '5%';
+            message.style.background = 'rgba(255, 255, 255, 0.9)';
+            message.style.color = '#FF0000';
+            message.style.padding = '10px 15px';
+            message.style.borderRadius = '20px';
+            message.style.fontSize = '1.2rem';
+            message.style.fontWeight = 'bold';
+            message.style.zIndex = '100';
+            message.style.animation = 'glow 2s ease-out forwards';
+            message.style.textAlign = 'center';
+            message.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+
+            document.body.appendChild(message);
+
+            setTimeout(() => {
+                if (message.parentNode) {
+                    message.parentNode.removeChild(message);
+                }
+            }, 3000);
         });
     </script>
 </body>
