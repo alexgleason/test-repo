@@ -1,6 +1,8 @@
 import { nip19 } from 'nostr-tools';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import NotFound from './NotFound';
+import Profile from './Profile';
+import PostDetail from './PostDetail';
 
 export function NIP19Page() {
   const { nip19: identifier } = useParams<{ nip19: string }>();
@@ -21,20 +23,14 @@ export function NIP19Page() {
   switch (type) {
     case 'npub':
     case 'nprofile':
-      // AI agent should implement profile view here
-      return <div>Profile placeholder</div>;
+      return <Profile />;
 
     case 'note':
-      // AI agent should implement note view here
-      return <div>Note placeholder</div>;
-
     case 'nevent':
-      // AI agent should implement event view here
-      return <div>Event placeholder</div>;
+      return <PostDetail />;
 
     case 'naddr':
-      // AI agent should implement addressable event view here
-      return <div>Addressable event placeholder</div>;
+      return <NotFound />;
 
     default:
       return <NotFound />;
